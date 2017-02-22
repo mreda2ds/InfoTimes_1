@@ -1,128 +1,1040 @@
+var swiper;
+var cities = [{
+  'name':'Cairo',
+  'Lat':30.06263 ,
+  'Lon':31.24967,
+},
+{
+  'name':'Asyut',
+  'Lat':27.18096 ,
+  'Lon':31.18368,
+},
+{
+  'name':'Suez',
+  'Lat':29.97371,
+  'Lon':32.52627,
+},
+{
+  'name':'Aswan',
+  'Lat':24.09082,
+  'Lon':32.89942,
+},
+{
+  'name':'Red Sea',
+  'Lat':27.15 ,
+  'Lon':33.50,
+},
+{
+  'name':'Minya',
+  'Lat':28.10988 ,
+  'Lon':30.7503,
+},
+{
+  'name':'Sohag',
+  'Lat':26.55695 ,
+  'Lon':31.69478,
+},
+{
+  'name':'Ismailia',
+  'Lat':30.60427 ,
+  'Lon':32.27225,
+},
+{
+  'name':'Alexandria',
+  'Lat':31.21564 ,
+  'Lon':29.95527,
+},
+{
+  'name':'Portsaid',
+  'Lat':31.25654 ,
+  'Lon':32.28411,
+},
+{
+  'name':'Helwan',
+  'Lat':29.84144 ,
+  'Lon':31.30084,
+},
+{
+  'name':'Beni-Suef',
+  'Lat':29.07441 ,
+  'Lon':31.09785,
+},
+{
+  'name':'Qalyoubia',
+  'Lat':30.17922 ,
+  'Lon':31.2056
+},
+{
+  'name':'Giza',
+  'Lat':30.00808 ,
+  'Lon':31.21093,
+},
+{
+  'name':'Sharkeyia',
+  'Lat':30.58768,
+  'Lon':31.502,
+}];
+
+var prv = [{
+  'name':'Cairo Angels',
+  'sector':'Energy, Agriculture, Tech',
+  'city':'Cairo',
+  'f0':'False',
+  'f1':'False',
+  'f2':'False',
+  'f3':'False',
+  'f4':'False',
+  'f5':'False',
+  'f6':'True',
+  'f7':'False',
+  'f8':'False'
+},{
+  'name':'Social Fund For Development (Interviewed Cairo & Aswan)',
+  'sector':'Service, Manufacturing,Tech',
+  'city':'All',
+  'f0':'False',
+  'f1':'True',
+  'f2':'False',
+  'f3':'True',
+  'f4':'True',
+  'f5':'True',
+  'f6':'True',
+  'f7':'True',
+  'f8':'True'
+},{
+  'name':'Endeavor',
+  'sector':'All sectors',
+  'city':'Cairo',
+  'f0':'False',
+  'f1':'False',
+  'f2':'False',
+  'f3':'False',
+  'f4':'False',
+  'f5':'False',
+  'f6':'True',
+  'f7':'True',
+  'f8':'False'
+},{
+  'name':'Innoventures',
+  'sector':'All',
+  'city':'Cairo',
+  'f0':'True',
+  'f1':'False',
+  'f2':'True',
+  'f3':'True',
+  'f4':'False',
+  'f5':'True',
+  'f6':'True',
+  'f7':'True',
+  'f8':'True'
+},{
+  'name':'AUC Center for Entrepreneurship',
+  'sector':'All',
+  'city':'Cairo',
+  'f0':'True',
+  'f1':'False',
+  'f2':'False',
+  'f3':'True',
+  'f4':'False',
+  'f5':'True',
+  'f6':'True',
+  'f7':'True',
+  'f8':'True'
+},{
+  'name':'AUC Venture Lab',
+  'sector':'E-commerce, Renewable energy, Education, Gaming, and Fashion',
+  'city':'Cairo',
+  'f0':'False',
+  'f1':'False',
+  'f2':'True',
+  'f3':'True',
+  'f4':'False',
+  'f5':'True',
+  'f6':'True',
+  'f7':'True',
+  'f8':'True'
+},{
+  'name':'Ashoka',
+  'sector':'Social Sector',
+  'city':'Cairo',
+  'f0':'False',
+  'f1':'False',
+  'f2':'False',
+  'f3':'True',
+  'f4':'False',
+  'f5':'True',
+  'f6':'True',
+  'f7':'True',
+  'f8':'True',
+  'f9':'True',
+},{
+  'name':'Awtad',
+  'sector':'All',
+  'city':'Cairo',
+  'f0':'True',
+  'f1':'False',
+  'f2':'False',
+  'f3':'True',
+  'f4':'True',
+  'f5':'True',
+  'f6':'True',
+  'f7':'True',
+  'f8':'True',
+  'f9':'True',
+},{
+  'name':'El Maqar',
+  'sector':'All',
+  'city':'Cairo',
+  'f0':'False',
+  'f1':'False',
+  'f2':'True',
+  'f3':'False',
+  'f4':'False',
+  'f5':'False',
+  'f6':'False',
+  'f7':'False',
+  'f8':'False',
+  'f9':'False',
+},{
+  'name':'Gesr- Misr El Kheir',
+  'sector':'Food, Health, Water, Energy, Education and Tech',
+  'city':'Cairo',
+  'f0':'True',
+  'f1':'False',
+  'f2':'True',
+  'f3':'True',
+  'f4':'True',
+  'f5':'True',
+  'f6':'True',
+  'f7':'True',
+  'f8':'True',
+  'f9':'True',
+},{
+  'name':'EITESAL- Ebni Incubator',
+  'sector':'Tech Sector',
+  'city':'Cairo',
+  'f0':'True',
+  'f1':'False',
+  'f2':'False',
+  'f3':'True',
+  'f4':'True',
+  'f5':'True',
+  'f6':'True',
+  'f7':'False',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'GAFI - Bedaya',
+  'sector':'All',
+  'city':'Cairo',
+  'f0':'True',
+  'f1':'False',
+  'f2':'False',
+  'f3':'True',
+  'f4':'False',
+  'f5':'True',
+  'f6':'True',
+  'f7':'False',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'TIEC',
+  'sector':'Tech Sector',
+  'city':'Cairo & Assiut',
+  'f0':'True',
+  'f1':'False',
+  'f2':'False',
+  'f3':'True',
+  'f4':'False',
+  'f5':'True',
+  'f6':'True',
+  'f7':'False',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Nahdet Mahrousa',
+  'sector':'Social Sector',
+  'city':'Cairo, Suez, Minya, Aswan, Red Sea',
+  'f0':'True',
+  'f1':'False',
+  'f2':'True',
+  'f3':'True',
+  'f4':'True',
+  'f5':'True',
+  'f6':'True',
+  'f7':'True',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Intilac (Academy of Scientific Research & Technology)',
+  'sector':'Tech Sector',
+  'city':'Cairo, Sohag, Suez',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'AYB (Ebtaker Program)',
+  'sector':'Social Sector',
+  'city':'Cairo, Alexandria, Ismailia, Portsaid, Helwan, Assiut',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Business Yard',
+  'sector':'Tech Sector',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Care (Cairo & Aswan interviewed)',
+  'sector':'All sectors',
+  'city':'Beni-Suef, Sharkeyia',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'CEOSS (Microfinance Program)',
+  'sector':'All sectors',
+  'city':'Cairo, Giza, Qalyoubia, Beni Suef, Minya, Assiut, Suhag',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Chefchaoun',
+  'sector':'Music',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Creativo',
+  'sector':'All sectors',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'District',
+  'sector':'All sectors',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'El Rehla',
+  'sector':'All sectors',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Entlaqa',
+  'sector':'All sectors',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Entrepenelle',
+  'sector':'All sectors',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Hadath',
+  'sector':'All sectors',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Hivos',
+  'sector':'Creative industries',
+  'city':'Menoufyia, Menyia, Alexandria, & Ismailia',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Injaz',
+  'sector':'All sectors',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Start-up School',
+  'sector':'All sectors',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'CU-TICO',
+  'sector':'Tech Sector',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Yomken',
+  'sector':'Manufacturing Sector',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Start-up Grind',
+  'sector':'All sectors',
+  'city':'Cairo, Alexandria,  Assiut',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Alex Hackerspace',
+  'sector':'Hardware & Manufacturing Sectors',
+  'city':'Alexandria',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Inno 101',
+  'sector':'Tech Sector',
+  'city':'Alexandria',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Maamal',
+  'sector':'All sectors',
+  'city':'Alexandria',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Alexandria Businessmen Association',
+  'sector':'All sectors',
+  'city':'Alexandria',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Alexandria Family Planning Association',
+  'sector':'All sectors',
+  'city':'Alexandria',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Abees Graduates for Development Association',
+  'sector':'Handicrafts & agriculture sectors',
+  'city':'Alexandria',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Fekrativity',
+  'sector':'All sectors',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Techne Summit',
+  'sector':'Tech Sector',
+  'city':'Alexandria , Delta and Upper Egypt',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Industrial Council for Technology & Innovation (Ministry of Trade & Industry',
+  'sector':'Tech Sector',
+  'city':'Cairo, Elmenia, Elsharkia, Alexandria, Damietta',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Mashoura Center UNICEF',
+  'sector':'All sectors',
+  'city':'Aswan',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Aswan Entrepeneurship Center',
+  'sector':'All sectors',
+  'city':'Aswan',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Aswan Businessmen Association',
+  'sector':'All sectors',
+  'city':'Aswan',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Aswan Chamber of Commerce',
+  'sector':'All sectors',
+  'city':'Aswan',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Egyptian Refining Co. (ERC)',
+  'sector':'All sectors',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Synergos (Pioneers of Egypt)',
+  'sector':'Social Sector',
+  'city':'All',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Al Moltaqa',
+  'sector':'All sectors',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Caritas',
+  'sector':'All sectors',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Together Association',
+  'sector':'Manufacturing Sector',
+  'city':'Giza, Minya, Cairo, Sohag',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'302 Labs',
+  'sector':'Manufacturing Sector',
+  'city':'Minya',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Helmet BP',
+  'sector':'Tech Sector',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Behive',
+  'sector':'All sectors',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':"Mo'aseset Abna'a Misr",
+  'sector':'All sectors',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Spirit of Youth',
+  'sector':'All sectors',
+  'city':'Minya',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'My Cooffice',
+  'sector':'Solidwaste management (SWM)',
+  'city':'Cairo - Mansheyiat Nasser',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Yadawee',
+  'sector':'All sectors',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Master Minds',
+  'sector':'Handicrafts',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Delta Inspire & 138 Pyramids',
+  'sector':'Consulting',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Nawah Scientific',
+  'sector':'All sectors',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+},{
+  'name':'Flat 6 Labs',
+  'sector':'Science',
+  'city':'Cairo',
+  'f0':'',
+  'f1':'',
+  'f2':'',
+  'f3':'',
+  'f4':'',
+  'f5':'',
+  'f6':'',
+  'f7':'',
+  'f8':'',
+  'f9':'',
+}]
+
+
+
 $( document ).ready(function() {
   console.log( "ready!" );
-  var swiper = new Swiper('.swiper-container', {
+  swiper = new Swiper('.swiper-container', {
     pagination: '.swiper-pagination',
     paginationClickable: false,
     spaceBetween: 0,
     allowSwipeToPrev: false,
     allowSwipeToNext: false
   });
-  /*var providers=[{
-    'name':'',
-    'Commercializing Innovation':'',
-    'Market Intelligence':'',
-    'Working Space':'',
-    'Market Access/ Linkages':'',
-    'Supply/ Value Chain Linkages':'',
-    'Capacity Building & Training':'',
-    'Consulting, Coaching, and Mentoring':'',
-    'Legal Support':''
-  }]
-  var cities = [{
-    'name':'Cairo',
-    'Lat':30.01 ,
-    'Long':31.14,
-  },
-  {
-    'name':'Asyut',
-    'Lat':27.11 ,
-    'Long':31.04,
-  },
-  {
-    'name':'Suez',
-    'Lat':29.58,
-    'Long':32.31,
-  },
-  {
-    'name':'Aswan',
-    'Lat':24.04  ,
-    'Long':32.57,
-  },
-  {
-    'name':'Red Sea',
-    'Lat':27.15 ,
-    'Long':33.50,
-  }]
 
-  /*current_Q = 0;
-  Questions = [
-  {
-  'Q': "What is the current stage of your startup?",
-  'a1':'Not Started',
-  'a2': 'Started',
-  'a3': 'Strated from While'
-},
-{
-'Q': "What is the sector of your startup?",
-'a1': "IT",
-'a2': "Marketing",
-'a3': "Health"
-},
-{'Q': "What is the nedded provider?"},
-{
-'Q': "Was the tool useful for you?",
-'a1': "Yes",
-'a2': "No"
-}
-]
+  $('#mybtn').on('click', function(event) {
+    event.preventDefault(); // To prevent following the link (optional)
+    console.log("hi");
+    gonxt();
+  });
 
-load_Q();
-console.log(Questions.length)
-function empty_Q(){
+  $('.chkbx').on('click', function(event) {
+    event.preventDefault(); // To prevent following the link (optional)
+    console.log("hixxx");
+    gonxt();
+  });
 
-}
-function load_Q(){
-$('#exampleSelect1').empty()
-$('#Q_txt').html(Questions[current_Q].Q);
-$('#exampleSelect1').append('<option>'+Questions[current_Q].a1+'</option>');
-$('#exampleSelect1').append('<option>'+Questions[current_Q].a2+'</option>');
-$('#exampleSelect1').append('<option>'+Questions[current_Q].a3+'</option>');
-}
-$('#mybtn').on('click', function(event) {
-event.preventDefault(); // To prevent following the link (optional)
-if(current_Q<Questions.length){
-current_Q++;
-load_Q();
-}
-
-});*/
-$('#mybtn').on('click', function(event) {
-  event.preventDefault(); // To prevent following the link (optional)
-  console.log("hi");
-  gonxt();
+  $('#exampleSelect1').on('change', function(event) {
+    event.preventDefault(); // To prevent following the link (optional)
+    console.log("hiss");
+    gonxt();
+  });
 });
-$('.chkbx').on('click', function(event) {
-  event.preventDefault(); // To prevent following the link (optional)
-  console.log("hixxx");
-  gonxt();
-});
-$('#exampleSelect1').on('change', function(event) {
-  event.preventDefault(); // To prevent following the link (optional)
-  console.log("hiss");
-  gonxt();
-});
+
 function gonxt(){
   swiper.params.allowSwipeToNext = true;
   swiper.slideNext(false);
   swiper.params.allowSwipeToNext = false;
 }
 
+var tblhead ='<table style="">'+
+'<tr>'+
+'<th>Name</th>'+
+'<th>Commercializing Innovation</th> '+
+'<th>Market Intelligence</th>'+
+'<th>Working Space</th>'+
+'<th>Market Access/ Linkages</th>'+
+'<th>Supply/ Value Chain Linkages</th>'+
+'<th>Capacity Building & Training</th>'+
+'<th>Consulting, Coaching, and Mentoring</th>'+
+'<th>Legal Support</th>'+
+'</tr>';
+var tblfoot = '</table>';
+var tblcontent = '';
 
-//AIzaSyCuShUHmwkn4szM05wJE7Ry1ASMDzUoxJc
-function initMap() {
-  var uluru = {lat: -25.363, lng: 131.044};
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: uluru
-  });
+function shwtbl(e){
+  console.log(e);
+  for(var i=0;i<prv.length;i++){
+    if(prv[i].city.indexOf(cities[e].name) >= 0 || prv[i].city.indexOf('All') >= 0){
+      tblcontent += '<tr><td>'+prv[i].name+'</td><td>'
+      +prv[i].f0+'</td><td>'
+      +prv[i].f1+'</td><td>'
+      +prv[i].f2+'</td><td>'
+      +prv[i].f3+'</td><td>'
+      +prv[i].f4+'</td><td>'
+      +prv[i].f5+'</td><td>'
+      +prv[i].f6+'</td><td>'
+      +prv[i].f7+'</td></tr>';
+
+    }
+
+  }
+  swiper.params.allowSwipeToNext = true;
+  swiper.slideNext(false);
+  swiper.params.allowSwipeToNext = false;
+  $('#shwtbl').html(tblhead+tblcontent+tblfoot);
+}
+var map;
+function addmarker(){
+  var currentsector = "Social Sector";
   for(var i=0;i<cities.length;i++){
-    var uluru1 = '{lat:'+ cities[i].lat +', lng:'+ cities[i].Long +'}';
-    var marker = new google.maps.Marker({
-      position: uluru1,
-      label: cities[i].name,
-      map: map
-    });
-    console.log(cities[i].name);
+    for(var j=0;j<prv.length;j++){
+      if((prv[j].city.indexOf(cities[i].name) >= 0 || prv[j].city.indexOf('All') >= 0) &&
+      (prv[j].sector.indexOf(currentsector) >= 0 || prv[j].sector.indexOf('All') >= 0)){
+
+        var marker = new google.maps.Marker({
+          position: {lat: cities[i].Lat, lng: cities[i].Lon },
+          label: cities[i].name,
+          id: i,
+          map: map
+        });
+
+        console.log(cities[i].name,cities[i].Lon);
+        google.maps.event.addListener(marker, 'click', function(e) {
+          shwtbl(this.id);
+        });
+      }
+
+    }
   }
 }
-});
+//AIzaSyCuShUHmwkn4szM05wJE7Ry1ASMDzUoxJc
+function initMap() {
+  var uluru = {lat: 26.8206, lng: 30.8025};
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 6,
+    center: uluru,
+    mapTypeControl: false,
+    zoomControl: true,
+    scaleControl: false,
+    streetViewControl:false,
+  });
+  addmarker();
+}
+//initMap();
+//google.maps.event.addDomListener(window, 'load', initMap);
