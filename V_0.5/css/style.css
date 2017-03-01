@@ -49,12 +49,10 @@ button.list-group-item{
 	margin-top: 1%;
 }
 .redbtn{
-	background-color: #bc0f09;
-	border-color: #c30f00;
+
 }
 .redbtn:hover{
-	background-color: #970f0f;
-	border-color: #c30f00;
+
 
 }
 .soc{
@@ -65,6 +63,7 @@ button.list-group-item{
 	z-index: 100;
 }
 table{
+	min-width: 100%;
 	width: 100%;
 	max-width: 100%;
 	border-radius: 20px;
@@ -79,14 +78,16 @@ td, th {
 	padding: 2px;
 }
 th {
-	background: lightblue;
+	background: #970f0f;
 	border-color: white;
+	color: white;
 }
 .sectorbtn{
-	border-radius: 50%;
+	
 	text-align: center;
 	width: 20%;
 	height: 10%;
+
 }
 #map{
 	position: absolute;;
