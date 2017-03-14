@@ -957,8 +957,10 @@ $( document ).ready(function() {
     pagination: '.swiper-pagination',
     paginationClickable: false,
     spaceBetween: 0,
-    allowSwipeToPrev: false,
-    allowSwipeToNext: false
+    /*allowSwipeToPrev: false,
+    allowSwipeToNext: false,*/
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
   });
 
   $('#mybtn').on('click', function(event) {
