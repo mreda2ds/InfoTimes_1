@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="MReda">
+
+  <title>Startup Service Finder</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="css/bootstrap.icon-large.min.css" rel="stylesheet"/>
+  <link href="css/swiper.min.css" rel="stylesheet" />
+  <link href="css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="css/jquery-ui.css"/>
+  <!--Custom CSS-->
+  <link href="css/style.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+  <div class="text-center row">
+
+  </div>
+  <div class="container">
+    <div class="row">
+
+      <div id="breif_con" class="col-lg-3">
+        <h2 id="breif_title">Startup Service Finder</h2>
+        <p id="breif">
+          Startup Service Finder is a tool to help you find the right service provider for developing your startup. Filling your contacts helps us update you with new service providers.
+        </p>
+
+        <a class="soc" target="_blank" style="font-size:30px;color:white" href="https://www.facebook.com/gizprofile">
+          <span class="fa fa-facebook"></span>
+        </a>
+        <a class="soc" target="_blank" style="font-size:30px;color:white" href="https://twitter.com/giz_gmbh">
+          <span class="fa fa-twitter"></span>
+        </a>
+        <a class="soc" target="_blank" style="font-size:30px;color:white" href="https://www.youtube.com/user/GIZonlineTV">
+          <span class="fa fa-youtube"></span>
+        </a>
+
+      </div>
+
+      <div class="col-lg-9 swiper_con">
+        <!-- Swiper -->
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="form-group">
+                <label for="name" class="col-lg-2 col-form-label mrform">Name</label>
+                <div class="col-lg-10 mrform">
+                  <input class="form-control" type="text" value="Enter Your Name" id="name">
+                </div>
+                <label for="example-email-input" class="col-lg-2 col-form-label mrform">Email</label>
+                <div class="col-lg-10 mrform">
+                  <input class="form-control" type="email" value="hero@example.com" id="example-email-input">
+                </div>
+                <div class="col-lg-2 col-lg-offset-5 mrform">
+                  <button type="button" id="mybtn"  class="btn btn-lg glyphicon glyphicon-log-in"> Go </button>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="form-group">
+                <label for="exampleSelect1" class="col-lg-12">Q1: What is the current stage of your startup?</label>
+                <select class="form-control col-lg-12" id="exampleSelect1">
+                  <option value=""></option>
+                  <option value="Pre-startup phase">Pre-startup phase</option>
+                  <option value="Phase Startup phase">Phase Startup phase.</option>
+                  <option value="Growth phase">Growth phase.</option>
+                </select>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="form-group">
+                <label for="" class="col-lg-12">Q2: Which sector is your startup working in?</label>
+                <span class="button-checkbox">
+                  <button type="button" class="btn btn-lg chkbx" data-color="Danger">Agriculture & Food</button>
+                  <input type="checkbox" class="hidden"  />
+                </span>
+                <span class="button-checkbox">
+                  <button type="button" class="btn btn-lg chkbx" data-color="Danger">Creative Industries</button>
+                  <input type="checkbox" class="hidden"  />
+                </span>
+                <span class="button-checkbox">
+                  <button type="button" class="btn btn-lg chkbx" data-color="Danger">E-commerce</button>
+                  <input type="checkbox" class="hidden"  />
+                </span>
+                <span class="button-checkbox">
+                  <button type="button" class="btn btn-lg chkbx" data-color="Danger">Energy</button>
+                  <input type="checkbox" class="hidden"  />
+                </span>
+                <span class="button-checkbox">
+                  <button type="button" class="btn btn-lg chkbx" data-color="Danger">Handcrafting</button>
+                  <input type="checkbox" class="hidden"  />
+                </span>
+                <span class="button-checkbox">
+                  <button type="button" class="btn btn-lg chkbx" data-color="Danger">Manufacturing</button>
+                  <input type="checkbox" class="hidden"  />
+                </span>
+                <span class="button-checkbox">
+                  <button type="button" class="btn btn-lg chkbx" data-color="Danger">Music</button>
+                  <input type="checkbox" class="hidden"  />
+                </span>
+                <span class="button-checkbox">
+                  <button type="button" class="btn btn-lg chkbx" data-color="Danger">Service</button>
+                  <input type="checkbox" class="hidden"  />
+                </span>
+                <span class="button-checkbox">
+                  <button type="button" class="btn btn-lg chkbx" data-color="Danger">Social</button>
+                  <input type="checkbox" class="hidden"  />
+                </span>
+                <span class="button-checkbox">
+                  <button type="button" class="btn btn-lg chkbx" data-color="Danger">Solid Waste Management</button>
+                  <input type="checkbox" class="hidden"  />
+                </span><span class="button-checkbox">
+                  <button type="button" class="btn btn-lg chkbx" data-color="Danger">Technology</button>
+                  <input type="checkbox" class="hidden"  />
+                </span>
+
+              </div>
+            </div>
+            <div class="swiper-slide">
+            <!--  <div class="panel-group">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" href="#collapse1">Sectors</a>
+                    </h4>
+                  </div>
+                  <div id="collapse1" class="panel-collapse collapse">
+                    <ul class="list-group">
+                      <li class="list-group-item">Creative</li>
+                      <li class="list-group-item">Food</li>
+                      <li class="list-group-item">Handicrafts</li>
+                    </ul>
+                    <div class="panel-footer">Footer</div>
+                  </div>
+                </div>
+              </div>-->
+              <div class="prvlst">
+                <div class="list-group">
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action">All sectors</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action"><i class="glyphicon glyphicon-leaf"></i> Agriculture</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action"><i class="glyphicon glyphicon-briefcase"></i> Consulting</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action"><i class="glyphicon glyphicon-star"></i> Creative industries</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action"><i class="glyphicon glyphicon-usd"></i> E-commerce</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action"><i class="glyphicon glyphicon-education"></i> Education</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action"><i class="glyphicon glyphicon-flash"></i> Energy</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action">Fashion</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action"><i class="glyphicon glyphicon-apple"></i> Food</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action"><i class="icon-large icon-gamepad"></i> Gaming</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action">Handicrafts</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action"><i class="glyphicon glyphicon-hdd"></i> Hardware</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action"><i class="glyphicon glyphicon-tint"></i> Health</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action"><i class="glyphicon glyphicon-tent"></i> Incubators</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action"><i class="glyphicon glyphicon-wrench"></i> Manufacturing</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action"><i class="glyphicon glyphicon-headphones"></i> Music</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action"><i class="glyphicon glyphicon-tree-deciduous"></i> Renewable energy</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action">Science</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action">Service</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action">Social Sector</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action">Solidwaste management (SWM)</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action"><i class="glyphicon glyphicon-cog"></i> Support services</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action">Tech</button>
+                  <button type="button" class="sectorbtn list-group-item list-group-item-action">Water</button>
+                </div>
+              </div>
+              <div id="map">
+              </div>
+              <div id="dialog" title="Basic dialog" style="z-index=100">
+              </div>
+
+            </div>
+            <div id="shwtbl" class="swiper-slide">
+
+            </div>
+            <div class="swiper-slide">
+              <div class="form-group">
+                <label for="exampleSelect2" class="col-lg-12">Q4: Did you find the tool useful for you?</label>
+                <select class="form-control col-lg-12" id="exampleSelect2">
+                  <option value=""></option>
+                  <option value="1">Strongly disagree.</option>
+                  <option value="2">Disagree.</option>
+                  <option value="3">Somewhat disagree.</option>
+                  <option value="4">Somewhat agree.</option>
+                  <option value="5">Agree.</option>
+                  <option value="6">Strongly agree.</option>
+                </select>
+              </div></div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+    <!-- jQuery Version 1.11.1 -->
+    <script src="js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/swiper.min.js"></script>
+    <script src="js/chkbx.js"></script>
+    <script src="js/jquery-ui.js">
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuShUHmwkn4szM05wJE7Ry1ASMDzUoxJc&callback=initMap">
+    </script>
+    <script src="js/script.js"></script>
+    <script>
+
+    </script>
+
+
+
+  </body>
+  </html>
